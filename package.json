@@ -1,0 +1,17 @@
+{
+  "name": "angular-microfrontend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "webapp": "concurrently --names \"decide  ,inspire ,checkout\" \"mfserve --listen 3001 src/team-decide\" \"mfserve --listen 3002 --cors src/team-inspire\" \"mfserve --listen 3003 src/team-checkout\" \"wait-on http://localhost:3001/product/fendt && opener http://localhost:3001/product/fendt\""
+  },
+  "author": "matteobavecchi",
+  "license": "ISC",
+  "dependencies": {
+    "@microfrontends/serve": "^11.3.0",
+    "concurrently": "^5.2.0",
+    "opener": "^1.5.1",
+    "wait-on": "^5.0.1"
+  }
+}
