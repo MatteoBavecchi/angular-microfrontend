@@ -7,6 +7,10 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent {
-@Input() name?:string;
+  @Input() name?: string;
 
+
+  onClick() {
+    alert("Angular: è stato cliccato il pulsante " + this.name)
+  }
 }
