@@ -8,9 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall:bak": "",
+    "postinstall:bak": "ngcc",
     "postinstall": "ngcc",
-    "build:loginApp:externals": "ng build --extra-webpack-config projects/login-app//webpack.externals.js --prod --project loginApp --single-bundle --output-hashing none && node build-elements.js loginApp"
+    "build:loginApp:externals": "ng build --extra-webpack-config projects/login-app//webpack.externals.js --prod --project loginApp --single-bundle --output-hashing none && node build-elements.js loginApp",
+    "build:headerApp:externals": "ng build --extra-webpack-config projects/header-app//webpack.externals.js --prod --project headerApp --single-bundle --output-hashing none && node build-elements.js headerApp"
   },
   "private": true,
   "dependencies": {
