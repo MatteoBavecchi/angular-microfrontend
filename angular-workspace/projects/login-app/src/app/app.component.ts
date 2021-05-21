@@ -11,6 +11,12 @@ export class AppComponent {
 
 
   onClick() {
-    alert("Angular: è stato cliccato il pulsante " + this.name)
+    console.log("Angular: è stato cliccato il pulsante " + this.name);
+
+    const data = {
+      action: 'login'
+    }
+    const event = new CustomEvent('button_clicked', { detail: data });
+    window.dispatchEvent(event);
   }
 }

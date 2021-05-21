@@ -8,13 +8,22 @@
   <link href="http://localhost:3003/static/fragment.css" rel="stylesheet" />
 </head>
 
+
 <body class="decide_layout">
-  <h1 class="decide_header">The Tractor Store</h1>
-  <app-login name="Angular"></app-login>
   <script src="./angular/polyfill-webcomp-es5.js"></script>
   <script src="./angular/polyfill-webcomp.js"></script>
   <script src="./angular/scripts.js"></script>
   <script src="./angular/polyfills.js"></script>
+
+  <header>
+    <app-header></app-header>
+    <script src="header.js"></script>
+  </header>
+
+  <h1 class="decide_header">The Tractor Store</h1>
+  
+  <app-login name="Login"></app-login>
+
 
   <script src="login.js"></script>
 
@@ -30,9 +39,7 @@
       <img src="https://mi-fr.org/img/eicher_platinum.svg" />
     </label>
     <checkout-buy sku="eicher"></checkout-buy>
-    <app-header></app-header>
 
-    <script src="header.js"></script>
   </div>
   <aside class="decide_recos">
     <inspire-recommendations sku="eicher"></inspire-recommendations>
