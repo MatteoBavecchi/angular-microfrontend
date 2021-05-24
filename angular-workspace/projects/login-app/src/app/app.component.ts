@@ -1,22 +1,16 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class AppComponent {
-  @Input() name?: string;
+export class AppComponent implements OnInit {
+  constructor(private router: Router) { }
 
-
-  onClick() {
-    console.log("Angular: è stato cliccato il pulsante " + this.name);
-
-    const data = {
-      action: 'login'
-    }
-    const event = new CustomEvent('button_clicked', { detail: data });
-    window.dispatchEvent(event);
+  ngOnInit() {
+    this.router.navigate(['/login/home']);
   }
 }
