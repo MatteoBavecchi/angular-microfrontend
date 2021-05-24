@@ -1,2 +1,6 @@
-<h1 *ngIf="this.heading">You are logged in!</h1>
+<div *ngIf="this.heading">
+    <h1>Welcome!</h1>
+    <h2>{{this.email}}</h2>
+    <h2>{{this.password}}</h2>
+</div>
 <h1 *ngIf="!this.heading">Please login...</h1>

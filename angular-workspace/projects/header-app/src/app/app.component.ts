@@ -10,22 +10,25 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnChanges, OnDes
 export class AppComponent implements OnInit, OnDestroy {
 
   heading?: boolean = false;
+  email?: string;
+  password?: string;
 
   constructor(private cd: ChangeDetectorRef) { }
 
   ngOnInit() {
-    window.addEventListener('button_clicked', this.login, true);
+    window.addEventListener('loginEvent', this.login.bind(this), true);
     console.log("Header:Added event listener");
   }
 
-  login = () => {
-    console.log("Header:login function");
+  login = (event: any) => {
+    console.log("Header:login function: " + event.detail.action + "-" + event.detail.email + "-" + event.detail.password);
     this.heading = !this.heading;
-    console.log(this.heading);
+    this.email = event.detail.email;
+    this.password = event.detail.password;
     this.cd.detectChanges();
   }
 
   ngOnDestroy() {
-    window.removeEventListener('button_clicked', this.login, true);
+    window.removeEventListener('loginEvent', this.login, true);
   }
 }
