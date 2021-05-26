@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnChanges, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  ComponentFactoryResolver,
+  ViewChild,
+  ViewContainerRef,
+  ViewEncapsulation
+} from '@angular/core';
+import { WidgetComponent } from './widget/widget.component';
 
 @Component({
   selector: 'app-header',
@@ -7,28 +15,18 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnChanges, OnDes
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent {
 
-  heading?: boolean = false;
-  email?: string;
-  password?: string;
+  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
 
-  constructor(private cd: ChangeDetectorRef) { }
+  @ViewChild('widget', { read: ViewContainerRef }) alertHost!: ViewContainerRef;
 
-  ngOnInit() {
-    window.addEventListener('loginEvent', this.login.bind(this), true);
-    console.log("Header:Added event listener");
+  generateWidget() {
+    const factory = this.componentFactoryResolver.resolveComponentFactory(WidgetComponent);
+    const ref = this.alertHost.createComponent(factory);
+    ref.changeDetectorRef.detectChanges();
+
   }
 
-  login = (event: any) => {
-    console.log("Header:login function: " + event.detail.action + "-" + event.detail.email + "-" + event.detail.password);
-    this.heading = !this.heading;
-    this.email = event.detail.email;
-    this.password = event.detail.password;
-    this.cd.detectChanges();
-  }
 
-  ngOnDestroy() {
-    window.removeEventListener('loginEvent', this.login, true);
-  }
 }
