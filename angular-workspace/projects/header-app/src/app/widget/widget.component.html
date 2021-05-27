@@ -1,7 +1,13 @@
-
-<div *ngIf="this.heading">
+<!--<div *ngIf="this.heading">
     <h1>Welcome!</h1>
     <h2>{{this.email}}</h2>
     <h2>{{this.password}}</h2>
 </div>
-<h1 *ngIf="!this.heading">Please login...</h1>
+<h1 *ngIf="!this.heading">Please login...</h1>-->
+<div class="content" role="main">
+    <div class="terminal">
+        <pre *ngIf="!this.heading">Please login...</pre>
+        <pre *ngIf="this.heading">Welcome {{this.email}}!</pre>
+        <pre *ngIf="this.heading">Your password is {{this.password}}!</pre>
+    </div>
+</div>

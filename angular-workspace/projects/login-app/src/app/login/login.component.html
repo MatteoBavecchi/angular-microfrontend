@@ -1,8 +1,9 @@
 <form>
     <label for="id">Email</label>
-    <input id="id" type="text" #email>
+    <input id="id" type="text" #email><br>
     <label for="password">Password</label>
     <input id="password" type="password" #password>
 </form>
-<button (click)="onLogin(email.value, password.value)">Login</button>
-<a routerLink="/login/home">back</a>
+<br>
+<button (click)="onLogin(email.value, password.value)">Login</button><br>
+<button style="background: sienna;" routerLink="/login/home">Back</button>
