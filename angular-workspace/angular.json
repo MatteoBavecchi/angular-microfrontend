@@ -11,7 +11,7 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/loginApp",
             "index": "projects/login-app/src/index.html",
@@ -76,7 +76,7 @@
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "loginApp:build"
           },
@@ -93,7 +93,7 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/login-app/src/test.ts",
             "polyfills": "projects/login-app/src/polyfills.ts",
@@ -144,8 +144,9 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "ngx-build-plus:browser",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "extraWebpackConfig": "projects/login-app/webpack-externals.js",
             "outputPath": "dist/headerApp",
             "index": "projects/header-app/src/index.html",
             "main": "projects/header-app/src/main.ts",
@@ -209,7 +210,7 @@
           }
         },
         "serve": {
-          "builder": "ngx-build-plus:dev-server",
+          "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "headerApp:build"
           },
@@ -226,7 +227,7 @@
           }
         },
         "test": {
-          "builder": "ngx-build-plus:karma",
+          "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "projects/header-app/src/test.ts",
             "polyfills": "projects/header-app/src/polyfills.ts",

@@ -25,10 +25,10 @@ import { HomeComponent } from './home/home.component';
   ]
 })
 export class AppModule {
-  constructor(private injector: Injector) { }
-
-  ngDoBootstrap() {
+  constructor(private injector: Injector) {
     const loginApp = createCustomElement(AppComponent, { injector: this.injector });
     customElements.define('app-login', loginApp);
   }
+
+  ngDoBootstrap() { }
 }

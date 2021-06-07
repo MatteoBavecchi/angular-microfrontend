@@ -20,10 +20,11 @@ import { WidgetComponent } from './widget/widget.component';
   ]
 })
 export class AppModule {
-  constructor(private injector: Injector) { }
-
-  ngDoBootstrap() {
-    const headerApp = createCustomElement(AppComponent, { injector: this.injector });
+  constructor(private injector: Injector) {
+    const headerApp = createCustomElement(AppComponent, { injector: this.injector });//Guarda
     customElements.define('app-header', headerApp);
   }
+
+  ngDoBootstrap() { }
+  //PROVA ANCHE A ESPORTARE ANCHE APP-WIDGET
 }
