@@ -11,7 +11,7 @@ export class WidgetComponent implements OnInit {
   email?: string;
   password?: string;
 
-  constructor(private cd: ChangeDetectorRef) { }
+  constructor(/*private cd: ChangeDetectorRef*/) { }
 
   ngOnInit(): void {
     window.addEventListener('loginEvent', this.login.bind(this), true);
@@ -23,7 +23,7 @@ export class WidgetComponent implements OnInit {
     this.heading = !this.heading;
     this.email = event.detail.email;
     this.password = event.detail.password;
-    this.cd.detectChanges();
+    //this.cd.detectChanges();
   }
 
   ngOnDestroy() {

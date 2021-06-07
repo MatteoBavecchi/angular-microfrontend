@@ -12,7 +12,7 @@ import { WidgetComponent } from './widget/widget.component';
   selector: 'app-header',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush,
+  //changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent {
@@ -24,7 +24,7 @@ export class AppComponent {
   generateWidget() {
     const factory = this.componentFactoryResolver.resolveComponentFactory(WidgetComponent);
     const ref = this.alertHost.createComponent(factory);
-    ref.changeDetectorRef.detectChanges();
+   // ref.changeDetectorRef.detectChanges();
 
   }
 
