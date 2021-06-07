@@ -11,8 +11,10 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
+            "customWebpackConfig": { "path": "projects/login-app/extra-webpack.config.js",
+              "mergeStrategies": { "externals": "replace" } },
             "outputPath": "dist/loginApp",
             "index": "projects/login-app/src/index.html",
             "main": "projects/login-app/src/main.ts",
@@ -144,9 +146,10 @@
       "prefix": "app",
       "architect": {
         "build": {
-          "builder": "@angular-devkit/build-angular:browser",
+          "builder": "@angular-builders/custom-webpack:browser",
           "options": {
-            "extraWebpackConfig": "projects/login-app/webpack-externals.js",
+            "customWebpackConfig": { "path": "projects/header-app/extra-webpack.config.js",
+              "mergeStrategies": { "externals": "replace" } },
             "outputPath": "dist/headerApp",
             "index": "projects/header-app/src/index.html",
             "main": "projects/header-app/src/main.ts",
