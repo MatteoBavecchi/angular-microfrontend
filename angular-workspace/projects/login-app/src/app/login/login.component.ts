@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from 'projects/login-app/login.service';
 
 @Component({
   selector: 'app-login-form',
@@ -7,19 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit(): void {
   }
 
   onLogin(email: string, password: string) {
-    const data = {
-      action: 'login',
-      email: email,
-      password: password
-    }
-    const event = new CustomEvent('loginEvent', { detail: data });
-    window.dispatchEvent(event);
+    this.loginService.login(email, password);
   }
 
 }

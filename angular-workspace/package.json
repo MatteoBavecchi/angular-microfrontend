@@ -12,6 +12,7 @@
     "postinstall": "ngcc",
     "buildLogin": "ng build --prod --project loginApp --output-hashing none",
     "buildHeader": "ng build --prod --project headerApp --output-hashing none",
+    "buildShell": "ng build --prod --project shell --output-hashing none",
     "build:loginApp:externals": "ng build --extra-webpack-config projects/login-app//webpack.externals.js --prod --project loginApp --single-bundle --output-hashing none",
     "build:headerApp:externals": "ng build --extra-webpack-config projects/header-app//webpack.externals.js --prod --project headerApp --single-bundle --output-hashing none"
   },
