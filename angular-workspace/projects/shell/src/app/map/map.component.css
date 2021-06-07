@@ -1,0 +1,27 @@
+agm-map {
+    height: 600px;
+  }
+
+  agm-info-window{
+      padding:5px;
+      margin: 5px;
+      width: 500px;
+      height: 300px;
+  }
+
+  /* Remove the X, close button */
+.gm-ui-hover-effect {
+    display: none;
+}
+
+.gm-style-iw {
+    padding: 0;
+    background-color: #AAAAAA;
+    text-align: center;
+    color: white;
+}
+
+/* remove overflow scroll */
+.gm-style-iw-d {
+    overflow: none;
+}
