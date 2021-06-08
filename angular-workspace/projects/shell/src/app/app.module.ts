@@ -10,7 +10,7 @@ import { MapComponent } from './map/map.component';
   declarations: [
     AppComponent,
     MapComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
