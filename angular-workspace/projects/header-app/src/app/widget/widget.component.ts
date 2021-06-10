@@ -19,6 +19,7 @@ export class WidgetComponent implements OnInit {
   }
 
   login = (event: any) => {
+    console.log(event);
     console.log("Header:login function: " + event.detail.action + "-" + event.detail.email + "-" + event.detail.password);
     this.heading = !this.heading;
     this.email = event.detail.email;

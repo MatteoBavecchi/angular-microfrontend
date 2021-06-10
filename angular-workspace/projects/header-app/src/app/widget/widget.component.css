@@ -163,7 +163,8 @@ a:hover {
     padding-top: 45px;
     margin-top: 1px;
     overflow: hidden;
-    background-color: rgb(15, 15, 16);
+    background-color: var(--background-color);
+    /*background-color: rgb(15, 15, 16);*/
 }
 
 .terminal::before {
