@@ -1,4 +1,4 @@
-<agm-map [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
+<agm-map *ngIf="channelId" [latitude]="lat" [longitude]="lng" [zoom]="zoom" [disableDefaultUI]="false" [zoomControl]="false"
   (mapClick)="mapClicked($event)">
 
   <agm-marker *ngFor="let m of markers; let i = index" (markerClick)="clickedMarker(m.label!, i)" [latitude]="m.lat"
@@ -8,7 +8,7 @@
       <div class="text-marker">
         <h1>app microfrontendHeader</h1>
         <h2>app-header-text-marker</h2>
-        <app-header-text-marker lat="{{m.lat}}" lon="{{m.lng}}"></app-header-text-marker>
+        <app-header-text-marker [channel_id]="this.channelId" lat="{{m.lat}}" lon="{{m.lng}}"></app-header-text-marker>
       </div>
     </agm-info-window>
 

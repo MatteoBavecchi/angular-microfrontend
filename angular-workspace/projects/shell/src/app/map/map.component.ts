@@ -25,6 +25,9 @@ export class MapComponent implements OnInit {
 
   zoom: number = 8;
 
+  markersChannel!: BroadcastChannel;
+  channelId: string = "markers";
+
   title = 'My first AGM project';
   lat = 51.678418;
   lng = 7.809007;
@@ -32,11 +35,17 @@ export class MapComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.markersChannel = new BroadcastChannel(this.channelId);
+    console.log(this.channelId);
+    this.markersChannel.onmessage = function (ev) { console.log(ev); }
   }
+
+
 
   clickedMarker(label: string, index: number) {
     console.log(`clicked the marker: ${label || index}`)
   }
+
 
   mapClicked($event: MouseEvent) {
     this.markers.push({
