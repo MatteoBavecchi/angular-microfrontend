@@ -12,8 +12,9 @@
     padding: 10px;
 }
 
+
 .red {
-    --background-color: red;
+   --background-color: red;
 }
 
 .green {

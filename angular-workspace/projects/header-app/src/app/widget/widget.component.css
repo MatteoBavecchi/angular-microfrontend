@@ -167,6 +167,7 @@ a:hover {
     /*background-color: rgb(15, 15, 16);*/
 }
 
+
 .terminal::before {
     content: "\2022 \2022 \2022";
     position: absolute;
