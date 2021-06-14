@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'projects/login-app/login.service';
 
 @Component({
   selector: 'app-root',
@@ -8,10 +9,12 @@ import { Router } from '@angular/router';
   encapsulation: ViewEncapsulation.ShadowDom
 })
 export class AppComponent implements OnInit {
-  constructor(private router: Router) { }
+  @Input() ch!: string;
+  constructor(private router: Router, private loginService: LoginService) { }
 
   ngOnInit() {
-    console.log("ciao");
+    console.log("Avvio di loginApp");
+    this.loginService.setChannelName(this.ch);
     this.router.navigate(['/login/home']);
   }
 }

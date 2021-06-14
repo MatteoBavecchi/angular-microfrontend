@@ -5,7 +5,14 @@ import { Injectable } from '@angular/core';
 })
 export class LoginService {
 
+  channelName!: string;
+  bc!: BroadcastChannel;
   constructor() { }
+
+  setChannelName(ch: string) {
+    this.channelName = ch;
+    this.bc = new BroadcastChannel(this.channelName);
+  }
 
   login(email: string, password: string) {
     const data = {
@@ -13,8 +20,9 @@ export class LoginService {
       email: email,
       password: password
     }
-    const event = new CustomEvent('loginEvent', { detail: data });
-    window.dispatchEvent(event);
+    this.bc.postMessage(data);
+    //const event = new CustomEvent('loginEvent', { detail: data });
+    //window.dispatchEvent(event);
   }
 
 }

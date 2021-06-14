@@ -7,16 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'shell';
-  bc!: BroadcastChannel;
+  loginChannelName: string = "login-channel";
 
   ngOnInit() {
-    this.bc = new BroadcastChannel("map");
-   // window.addEventListener('pressEvent', this.stamp.bind(this), true);
   }
 
-
-  stamp(e: any) {
-    console.log(e);
-    //this.bc.postMessage(e.detail);
-  }
 }
